@@ -45,6 +45,8 @@ function startOver(){
     level = 0;
     gamePattern = [];
     started = false;
+    $("#tap-start").show();
+    $("#level-title").hide();
 }
 
 // STARTS THE GAME
@@ -60,6 +62,8 @@ $("#tap-start").on("click" ,function(){
         $("#level-title").text("level " + level);
         nextSequence ();
         started = true ;
+        $("#tap-start").hide();
+        $("#level-title").show();
     }
 })
 
@@ -77,6 +81,7 @@ function checkAnswer(currentLevel){
     //FOR WRONG ANSWERS
     else{
         $("#level-title").text("Game Over, Press Any Key to Restart");
+        $("#tap-start").text("Game Over, Tap Here 🔥 to Restart");
         var wrongSound = new Audio ('./sounds/wrong.mp3');
         wrongSound.play();
         userClickedPattern = [];
