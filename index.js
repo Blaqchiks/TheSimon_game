@@ -26,6 +26,7 @@ $(".btn").on("click" , function(){
     animatePress(userChosenColour);
 })
 
+
 function playSound(name){
     var Sound = new Audio ('./sounds/' + name +'.mp3');
     Sound.play();
@@ -53,6 +54,13 @@ $(document).on("keydown" ,function(){
         nextSequence ();
     }
     started = true ;
+})
+$("#tap-start").on("click" ,function(){
+    if (started === false){
+        $("#level-title").text("level " + level);
+        nextSequence ();
+        started = true ;
+    }
 })
 
 //CHECKS THE ANSWERS

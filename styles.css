@@ -10,6 +10,33 @@ body {
   color: #FEF2BF;
 }
 
+#tap-start {
+  display: none;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 3rem;
+  margin:  5%;
+  color: #FEF2BF;
+  animation: pulse 1.2s infinite;
+}
+
+@keyframes pulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+/* Phones & tablets Responsiveness */
+@media (max-width: 900px) {
+  #tap-start {
+    display: block;
+  }
+
+  #level-title {
+    display: none;
+  }
+}
+
+
 .container {
   display: block;
   width: 50%;
