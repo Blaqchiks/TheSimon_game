@@ -44,21 +44,27 @@ function animatePress(currentColour){
 function startOver(){
     level = 0;
     gamePattern = [];
+    userClickedPattern = [];
     started = false;
-    $("#tap-start").show();
+    $("#tap-start").text("Tap Here 🔥 to Start").show();
     $("#level-title").hide();
 }
 
 // STARTS THE GAME
 $(document).on("keydown" ,function(){
     if (started === false){
+        userClickedPattern = [];
         $("#level-title").text("level " + level);
         nextSequence ();
+        started = true ;
+        $("#tap-start").hide();
+        $("#level-title").show();
     }
-    started = true ;
+    
 })
 $("#tap-start").on("click" ,function(){
     if (started === false){
+        userClickedPattern = [];
         $("#level-title").text("level " + level);
         nextSequence ();
         started = true ;
@@ -81,7 +87,7 @@ function checkAnswer(currentLevel){
     //FOR WRONG ANSWERS
     else{
         $("#level-title").text("Game Over, Press Any Key to Restart");
-        $("#tap-start").text("Game Over, Tap Here 🔥 to Restart");
+        $("#tap-start").text("Game Over, Tap Here 🔥 to Restart").show();
         var wrongSound = new Audio ('./sounds/wrong.mp3');
         wrongSound.play();
         userClickedPattern = [];
